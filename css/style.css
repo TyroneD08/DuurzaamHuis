@@ -47,11 +47,41 @@ body {
     width: 330px;
     height: 300px;
     border-radius: 16px;
-    background: linear-gradient(to bottom, #35bbed, #0060ea, #000e22);
+    background: linear-gradient(to bottom, #0060ea, #000);
     transform: translateX(10%);
 }
 
+#sun, #moon {
+    padding: 1rem;
+    width: 100%;
+    height: 100px;
+}
+
+#sunImg {
+    width: 100px;
+    height: 100px;  
+}
+
+#sunTime {
+    font-size: 25px;
+    transform: translateX(55%) translateY(-250%);
+}
+
+#sunTemp {
+    transform: translateX(60%) translateY(-250%);
+}
+
 #moonImg {
-    width: 50px;
-    height: 50px;
+    width: 100px;
+    height: 100px;
+    transform: rotate(-25deg);
+}
+
+#moonTime {
+    font-size: 25px;
+    transform: translateX(55%);
+}
+
+#moonTemp {
+    transform: translateX(60%);
 }
