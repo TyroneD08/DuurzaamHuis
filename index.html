@@ -1,22 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="/https://38678.hosts2.ma-cloud.nl/M3BO/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/svg+xml" href="/https://38678.hosts2.ma-cloud.nl/M3BO/favicon.svg">
+    <link rel="shortcut icon" href="/https://38678.hosts2.ma-cloud.nl/M3BO/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/https://38678.hosts2.ma-cloud.nl/M3BO/apple-touch-icon.png">
+    <meta name="apple-mobile-web-app-title" content="Re:Gen360">
+    <link rel="manifest" href="/https://38678.hosts2.ma-cloud.nl/M3BO/site.webmanifest">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap" rel="stylesheet">
+    <script src="js/main.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <title>Dashboard</title>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
+
 <body>
-    <section id="top">
-        <section id="credits">
-            <img id="creditsImage" src="img/Logo.webp" alt="">
-            <h2 id="creditsText"> ISAAK, JANA & TYRONE</h2>
-        </section>
-    </section>
-    <section id="center">
-        <section id="zonsopkomst">
-            <img id="moonImg" src="img/Moon.webp" alt="">
-        </section>
+    <article class="topArticle">
+        <div class="temp">
+            <h1 class="tempText">12°C</h1>
+            <p class="tempTemp">temperature</p>
+        </div>
+        <div class="day">
+            <h1 id="js--dagTijd">10h</h1>
+        </div>
+        <div class="night">
+            <h1 id="js--nachtTijd">14h</h1>
+        </div>
+        <div class="grafiekDiv">
+            <h2 class="grafiekHoofdText">energieverbruik</h2>
+            <div class="line"></div>
+        </div>
+    </article>
+    <section>
+        <article class="bottomArticle">
+            <div class="user">
+                <div class="userpic"></div>
+                <h1 class="usertitle">user</h1>
+                <button class="user-button">settings</button>
+                <button class="user-button">account-settings</button>
+                <button class="user-button">log-out</button>
+            </div>
+            <div class="buttonDiv">
+                <button id="js--energieVerbruikButton" class="pageButtons">
+                    <p>energie-
+                        verbruik</p>
+                </button>
+                <button id="js--cycleButton" class="pageButtonsCycle">
+                    <p>day-
+                        night
+                        cycle</p>
+                </button>
+                <button id="js--manageDevicesButton" class="pageButtons">
+                    <p>manage
+                        devices</p>
+                </button>
+            </div>
+            <div class="monthlyRecap">
+                <h2 class="recapText">
+                    your monthly recap is ready!
+                </h2>
+                <h2 class="dateText" id="js--datum">.</h2>
+            </div>
+            <div class="devicesContainer">
+                <div class="groupOne">
+                    <h1 class="groupOneText">group 1</h1>
+                    <h2 class="groupOneSubText">living room</h2>
+                    <label class="switch groupOneSwitch">
+                        <input type="checkbox">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+                <div class="lightsContainer">
+                    <div class="lightOne">
+                        <h1 class="lightTwoText">light 2</h1>
+                        <label class="switch lightsSwitch">
+                            <input type="checkbox">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                    <div class="lightTwo">
+                        <h1 class="lightTwoText">light 2</h1>
+                        <label class="switch lightsSwitch">
+                            <input type="checkbox">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </article>
     </section>
 </body>
+
 </html>

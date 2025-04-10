@@ -1,0 +1,28 @@
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+    font-family:"League Spartan", sans-serif;;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+body{
+ background-color:#313A4F;
+ min-width: 40rem;
+ min-height: 100vh;
+ min-height: 100dvh;   
+}
+
+h1{
+    font-size: 6.25rem;
+}
+
+@media screen and (max-width: 43.75rem) {
+    body{
+        font-size:0.9rem;
+    }
+    .headerTitle{
+        font-size: 380%;
+    }
+}

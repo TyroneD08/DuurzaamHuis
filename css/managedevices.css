@@ -1,0 +1,182 @@
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+    font-family:"League Spartan", sans-serif;
+    font-weight: 700;
+}
+
+body{
+ background-color:#313A4F;
+ min-width: 40rem;
+ min-height: 100vh;
+ min-height: 100dvh;   
+}
+
+@media screen and (max-width: 43.75rem) {
+    body{
+        font-size:0.9rem;
+    }
+    .headerTitle{
+        font-size: 380%;
+    }
+}
+
+.manageDevicesText{
+    padding-top: 1.25rem;
+    padding-left: 1.25rem;
+    font-size: 3.125rem;
+    max-width: 5ch;
+    line-height: 2.5rem;
+    color: #E9ECF1;
+}
+
+.manageDevicesDiv{
+    margin-left: 2.5rem;
+    margin-top: 2.5rem;
+    width: 24.375rem;
+    height: 24.375rem;
+    background: #697B9B;
+    border-radius: 1rem;
+}
+
+.dateText {
+    font-size: 2.5rem;
+    max-width: 8ch;
+    margin-top: 25.75rem;
+    margin-right: 3.25rem;
+}
+
+.groupOne {
+    width: 30rem;
+    height: 18.1rem;
+    border-radius: 1rem;
+    background-color: #72C6F6;
+}
+
+.lightOne {
+    width: 14.06rem;
+    height: 18.1rem;
+    border-radius: 1rem;
+    background-color: #46549A;
+}
+
+.lightTwo {
+    width: 14.06rem;
+    height: 18.18rem;
+    border-radius: 1rem;
+    background-color: #46549A;
+}
+
+.lightsContainer {
+    margin-top: 1.875rem;
+    display: flex;
+    flex-direction: row;
+    gap: 1.875rem;
+}
+
+.switch {
+    position: relative;
+    display: flex;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #AFBACD;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: #E9ECF1;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked+.slider {
+    background-color: #85DF8E;
+}
+
+input:focus+.slider {
+    box-shadow: 0 0 1px #85DF8E;
+}
+
+input:checked+.slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+.groupOneSwitch {
+    position: absolute;
+    margin-left: 25rem;
+    margin-top: 7.125rem;
+}
+
+.lightsSwitch {
+    margin-top: 10.75rem;
+    margin-left: 8.875rem;
+}
+
+.recapText {
+    font-size: 2.5rem;
+    max-width: 8ch;
+    padding-left: 1.25rem;
+    padding-top: 1.25rem;
+    line-height: 30px;
+}
+
+.dateText {
+    font-size: 2.5rem;
+    max-width: 8ch;
+    justify-self: right;
+    margin-top: 25.75rem;
+    margin-right: 3.25rem;
+}
+
+.groupOneText {
+    color: white;
+    font-size: 3.75rem;
+    margin-left: 1.25rem;
+    padding-top: 1.25rem;
+}
+
+.groupOneSubText {
+    color: white;
+    font-size: 2.5rem;
+    margin-left: 1.25rem;
+}
+
+.lightTwoText{
+    color: #E9ECF1;
+    font-size: 2.375rem;
+    margin-left: 1.25rem;
+    padding-top: 1.25rem;
+}

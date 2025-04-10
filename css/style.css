@@ -1,57 +1,358 @@
-@font-face {
-    font-family: 'GTVCS';
-    src: url('../css/fonts/GTVCS-Black.woff2') format('woff2'),
-        url('../css/fonts/GTVCS-Black.woff') format('woff');
-    font-weight: 900;
-    font-style: normal;
-    font-display: swap;
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "League Spartan", sans-serif;
+    ;
+    font-size: 1rem;
+    font-weight: 700;
 }
 
 body {
-    background-color: black;
+    background-color: #313A4F;
+    min-width: 40rem;
+    min-height: 100vh;
+    min-height: 100dvh;
+}
+
+h1 {
+    font-size: 6.25rem;
+}
+
+@media screen and (max-width: 43.75rem) {
+    body {
+        font-size: 0.9rem;
+    }
+
+    .headerTitle {
+        font-size: 380%;
+    }
+}
+
+.topArticle {
+    margin-top: 2.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.temp {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin-left: 2.5rem;
+    margin-bottom: 2.5rem;
+    width: 25rem;
+    height: 21.87rem;
+    background-color: #5E6EC2;
+    border-radius: 1rem;
     color: white;
-    font-family: 'GTVCS';
-}
-
-#top {
-    display: flex;
     align-items: center;
-    gap: 1rem;
-    transform: translateY(-30%);
+    justify-content: center;
 }
 
-#center {
+.tempText {
+    font-size: 6.25rem;
+}
+
+.tempTemp {
+    font-size: 2.5rem;
+    margin-top: -1.5rem;
+}
+
+.day {
+    margin-left: 1.25rem;
+    width: 19.187rem;
+    height: 21.875rem;
+    background: #72C6F6;
+    background:linear-gradient(180deg, #72C6F6 40%, #5b9bed 90%);
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+    color: white;
+    justify-items: center;
+    align-content: center;
+}
+
+.night {
+    width: 19.187rem;
+    height: 21.875rem;
+    background: #46549A;
+    background:linear-gradient(180deg, #263689 40%, #46549A 90%);
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    color: white;
+    justify-items: center;
+    align-content: center;
+}
+
+.moonIcon {
+    position: absolute;
+}
+
+.grafiekDiv {
+    color: #EDE9F1;
+    margin-left: 1.25rem;
+    width: 35rem;
+    height: 21.875rem;
+    border-width: 0.31rem;
+    border-color: #EDE9F1;
+    border-style: solid;
+    border-radius: 1rem;
+}
+
+.grafiekHoofdText{
+    margin-left: 1.25rem;
+    margin-top: 1.25rem;
+    font-size: 2.5rem;
+}
+
+.user {
+    margin-bottom: 2.5rem;
+    margin-left: 2.5rem;
     display: flex;
+    flex-wrap: wrap;
+    width: 31.4rem;
+    height: 38.2rem;
+    background-color: #6156A4;
+    border-radius: 1rem;
     align-items: center;
-    gap: 1rem;
-    transform: translateY(-35%);
+    justify-content: center;
+    flex-direction: column;
+    gap: 1.25rem;
 }
 
-#credits {
+.user-button {
+    width: 24rem;
+    height: 4.8rem;
+    font-size: 2.5rem;
+    background-color: #7664E9;
+    color: #EDE9F1;
+    border-radius: 1rem;
+    border-style: none;
+    transition: .2s ease;
+}
+
+.user-button:hover {
+    background-color: #584da1;
+    transition: .2s ease;
+}
+
+.userpic {
+    height: 9.37rem;
+    width: 9.37rem;
+    border-radius: 50%;
+    background-color: #7F6EE9;
+}
+
+.usertitle {
+    color: #EDE9F1;
+    font-size: 3.125rem;
+}
+
+.bottomArticle {
     display: flex;
-    transform: translateX(-7.5%);
+    flex-wrap: wrap;
+    flex-direction: row;
 }
 
-#creditsImage {
-    max-width: 15.625rem;
-    max-height: 15.625rem;
-    width: 100%;
-    height: 100%;
+.pageButtonsCycle {
+    padding-left: 1.25rem;
+    line-height: 30px;
+    text-align: left;
+    width: 14.81rem;
+    height: 12.25rem;
+    background-color: #697B9B;
+    color: #EDE9F1;
+    border-radius: 1rem;
+    border-style: none;
+    transition: .2s ease;
+    padding-bottom: 3rem;
 }
 
-#creditsText {
-    transform: translateY(50%);
+.pageButtonsCycle:hover {
+    background-color: #556580;
 }
 
-#zonsopkomst {
-    width: 330px;
-    height: 300px;
-    border-radius: 16px;
-    background: linear-gradient(to bottom, #35bbed, #0060ea, #000e22);
-    transform: translateX(10%);
+.pageButtonsCycle>p {
+    max-width: 7ch;
+    font-size: 2.5rem;
 }
 
-#moonImg {
-    width: 50px;
-    height: 50px;
+.pageButtons {
+    padding-left: 1.25rem;
+    line-height: 30px;
+    text-align: left;
+    width: 14.81rem;
+    height: 12.25rem;
+    background-color: #697B9B;
+    color: #EDE9F1;
+    border-radius: 1rem;
+    border-style: none;
+    transition: .2s ease;
+    padding-bottom: 6rem;
+}
+
+.pageButtons:hover {
+    background-color: #556580;
+}
+
+.pageButtons>p {
+    max-width: 7ch;
+    font-size: 2.5rem;
+}
+
+.buttonDiv {
+    height: 38.187rem;
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 1rem;
+    flex-direction: column;
+    gap: 0.625rem;
+    margin-left: 1.875rem;
+}
+
+.monthlyRecap {
+    background: #72C6F6;
+    background:linear-gradient(180deg, #72C6F6 40%, #5b9bed 90%);
+    color: white;
+    width: 19.18rem;
+    height: 38.18rem;
+    border-radius: 1rem;
+    margin-left: 1.875rem;
+}
+
+.groupOne {
+    width: 30rem;
+    height: 18.1rem;
+    border-radius: 1rem;
+    background-color: #72C6F6;
+    margin-left: 1.875rem;
+}
+
+.lightOne {
+    width: 14.06rem;
+    height: 18.1rem;
+    border-radius: 1rem;
+    margin-left: 1.875rem;
+    background-color: #46549A;
+}
+
+.lightTwo {
+    width: 14.06rem;
+    height: 18.18rem;
+    border-radius: 1rem;
+    background-color: #46549A;
+}
+
+.lightsContainer {
+    margin-top: 1.875rem;
+    display: flex;
+    flex-direction: row;
+    gap: 1.875rem;
+}
+
+.switch {
+    position: relative;
+    display: flex;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #AFBACD;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: #E9ECF1;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked+.slider {
+    background-color: #85DF8E;
+}
+
+input:focus+.slider {
+    box-shadow: 0 0 1px #85DF8E;
+}
+
+input:checked+.slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+.groupOneSwitch {
+    position: absolute;
+    margin-left: 25rem;
+    margin-top: 7.125rem;
+}
+
+.lightsSwitch {
+    margin-top: 10.75rem;
+    margin-left: 8.875rem;
+}
+
+.recapText {
+    font-size: 2.5rem;
+    max-width: 8ch;
+    padding-left: 1.25rem;
+    padding-top: 1.25rem;
+    line-height: 30px;
+}
+
+.dateText {
+    font-size: 2.5rem;
+    max-width: 8ch;
+    justify-self: right;
+    margin-top: 25.75rem;
+    margin-right: 3.25rem;
+}
+
+.groupOneText {
+    color: white;
+    font-size: 3.75rem;
+    margin-left: 1.25rem;
+    padding-top: 1.25rem;
+}
+
+.groupOneSubText {
+    color: white;
+    font-size: 2.5rem;
+    margin-left: 1.25rem;
+}
+
+.lightTwoText{
+    color: #E9ECF1;
+    font-size: 2.375rem;
+    margin-left: 1.25rem;
+    padding-top: 1.25rem;
 }
