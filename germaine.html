@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script defer src="js/main.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <section id="top">
+        <section id="credits">
+            <img id="creditsImage" src="img/Logo360.png" alt="">
+            <h2 id="creditsText">360 RE: GENERATION</h2>
+            <h2 id="creditsTime">11 April, 12:00</h2>
+        </section>
+    </section>
+    <section id="center">
+        <section id="zonsopkomst">
+            <h1 id="sun-text">Zonsopkomst & ondergang</h1>
+            <section id="sun">
+                <img id="sunImg" src="img/Sun.webp">
+                <div class="sun-info">
+                    <h1 id="sunTime">12:00</h1>
+                    <h1 id="sunTemp">0°C</h1>
+                </div>
+            </section>
+            <section id="moon">
+                <img id="moonImg" src="img/moonwshadow.webp">
+                <div class="moon-info">
+                    <h1 id="moonTime">12:00</h1>
+                    <h1 id="moonTemp">0°C</h1>
+                </div>
+            </section>  
+            <h1 id="huidigeTemp">0°C</h1>          
+        </section>
+        <section id="energieverbruik">
+            <section id="grafiek">
+                <h1 id="energieverbruik-titel">Energieverbruik (kWh)</h1>
+                <h1 id="toptext">Vandaag</h1>
+                
+                <div id="grafiek-container">
+                    <canvas id="energyChart"></canvas>
+                </div>
+                <div id="bottomtext">
+                    <h1>04:00</h1>
+                    <h1>08:00</h1>
+                    <h1>12:00</h1>
+                    <h1>16:00</h1>
+                    <h1>20:00</h1>
+                    <h1>24:00</h1>
+                </div>
+            </section>
+            <div id="sidetext">
+                <h1>8</h1>
+                <h1>6</h1>
+                <h1>4</h1>
+                <h1>2</h1>
+            </div>
+            <section id="zonnepanelen">
+                <h1 id="zonnepanelen-text">Zonnepanelen</h1>
+                <section id="opbrengst">
+                    <div id="staafjes"></div>
+                </section>
+            </section>            
+        </section>
+        <section id="verandertemp">
+            <h1 id="verandertemp-titel">Huidige Temperatuur (°C)</h1>
+            <div class="circle">
+            <div class="red-overlay"></div>
+              <div class="inner-circle">
+                <div class="temperature-text">
+                  <input id="tempInput" type="number" value="12" />
+                  <span id="tempGevoel" class="label">Normaal</span>
+                </div>
+              </div>
+            </div>
+          </section>
+    </section>
+    <section id="bottom">
+        <section id="leuke-weetjes">
+            <h1 id="leuke-weetjes-text">Dagelijkse feitjes</h1>
+            <p id="leuke-weetjes-feit">Fetching fact..</p>
+        </section>
+        <section id="lampjes">
+            <h1 id="lampjes-titel">Lampen</h1>
+            <div class="lampjes-kamer-column">
+                <section id="lampjes-kamer1" class="lampjes-kamers">
+                    <label class="switch">
+                        <input type="checkbox" id="toggleButton1">
+                        <span class="slider"></span>
+                    </label>
+                    <h1 class="lampjes-kamer-title">Kamer1</h1>
+                </section>
+                <section id="lampjes-kamer2" class="lampjes-kamers">
+                    <label class="switch">
+                        <input type="checkbox" id="toggleButton2">
+                        <span class="slider"></span>
+                    </label>
+                    <h1 class="lampjes-kamer-title">Kamer2</h1>
+                </section>
+            </div>
+            <div class="lampjes-kamer-column right-column">
+                <section id="lampjes-kamer3" class="lampjes-kamers">
+                    <label class="switch">
+                        <input type="checkbox" id="toggleButton3">
+                        <span class="slider"></span>
+                    </label>
+                    <h1 class="lampjes-kamer-title">Kamer3</h1>
+                </section>
+                <section id="lampjes-kamer4" class="lampjes-kamers">
+                    <label class="switch">
+                        <input type="checkbox" id="toggleButton4">
+                        <span class="slider"></span>
+                    </label>
+                    <h1 class="lampjes-kamer-title">Kamer4</h1>
+                </section>
+            </div>
+        </section> 
+        <section id="credits2">
+            <h1>Medemogelijk gemaakt met:</h1>
+            <section id="creditimages">
+                <img src="img/vsc.webp" id="vscimg">
+                <img src="img/fontawesome.webp" id="fontimg">
+            </section>
+        </section>      
+    </section>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{
+    "LDR": null,
+    "Temperature": 12,
+    "Humidity": 146,
+    "HeatIndex": 13,
+    "lights": [
+        "LOW",
+        "LOW",
+        "LOW"
+    ]
+}
