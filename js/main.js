@@ -144,7 +144,7 @@ function changeDailyFact() {
     });
 }
 
-//changeDailyFact();
+changeDailyFact();
 
 const moonTime = document.getElementById("moonTime");
 const sunTime = document.getElementById("sunTime");
@@ -172,31 +172,36 @@ function updateOpkomstOndergang() {
 }
 
 
-//updateOpkomstOndergang();
+updateOpkomstOndergang();
 
 const tempInput = document.getElementById('tempInput');
 const tempOverlay = document.querySelector('.red-overlay');
 const tempGevoel = document.getElementById('tempGevoel');
 huidigeTemp = 12;
 
-function temperatuurVeranderd(temp) {
-    const nieuweGevoel = temp > huidigeTemp ? "Opwarmen" : "Koelen";
-    tempGevoel.classList.add('fade-out');
-
-    setTimeout(() => {
-        tempGevoel.textContent = nieuweGevoel;
-        tempGevoel.classList.remove('fade-out');
-        tempGevoel.classList.add('fade-in');
+function temperatuurVeranderd(temp, anim) {
+    if(anim == true)
+    {
+        const nieuweGevoel = temp > huidigeTemp ? "Opwarmen" : "Koelen";
+        tempGevoel.classList.add('fade-out');
 
         setTimeout(() => {
-            tempGevoel.classList.remove('fade-in');
-        }, 500);
-    }, 500);
+            tempGevoel.textContent = nieuweGevoel;
+            tempGevoel.classList.remove('fade-out');
+            tempGevoel.classList.add('fade-in');
 
-    if (huidigeTemp < temp) {
-        tempOverlay.style.opacity = '1';
-    } else if(huidigeTemp > temp) {
-        tempOverlay.style.opacity = '0';
+            setTimeout(() => {
+                tempGevoel.classList.remove('fade-in');
+            }, 500);
+        }, 500);
+
+        if (huidigeTemp < temp) {
+            tempOverlay.style.opacity = '1';
+        } else if(huidigeTemp > temp) {
+            tempOverlay.style.opacity = '0';
+        }
+    } else {
+        tempInput.value = temp;
     }
 
     huidigeTemp = temp;
@@ -205,7 +210,7 @@ function temperatuurVeranderd(temp) {
 tempInput.addEventListener('keydown', function (e) {
     if (e.key === 'Enter') {
       this.blur();
-      temperatuurVeranderd(parseFloat(tempInput.value));
+      temperatuurVeranderd(parseFloat(tempInput.value), true);
     }
 });
 
@@ -296,6 +301,7 @@ setInterval(updateCreditsTime, 1000);
 function updateLightState(toggleId, isOn) {
     const toggle = document.getElementById(toggleId);
     if (!toggle) return;
+    if (!["toggleButton1", "toggleButton2", "toggleButton3"].includes(toggleId)) return;
 
     if (toggle.checked !== isOn) {
         toggle.checked = isOn;
@@ -304,35 +310,47 @@ function updateLightState(toggleId, isOn) {
     }
 }
 
-function isChecked()
-{
-    //
-}
-
-function postLightRequest(Lights){
-    //
-};
-
 document.addEventListener("DOMContentLoaded", () => {
-    const toggles = document.querySelectorAll('.switch input[type="checkbox"]');
+    const allToggles = document.querySelectorAll('.switch input[type="checkbox"]');
+    const toggles = Array.from(allToggles).slice(0, 3); // only first 3 toggles
 
     toggles.forEach(toggle => {
-        toggle.addEventListener('change', (e) => {
-            const isChecked = e.target.checked;
-            const toggleId = e.target.id || "no-id";
+        toggle.addEventListener('change', () => {
+            const lightStates = toggles.map(t => t.checked ? 'HIGH' : 'LOW');
 
-            console.log(`Toggle ${toggleId} is now ${isChecked ? 'ON' : 'OFF'}`);
+            console.log('Updated light states:', lightStates);
+
+            fetch('post.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    lights: lightStates.slice(0, 3)
+                })
+            })            
+            .then(res => res.json())
+            .then(data => {
+                console.log('Server confirmed update:', data);
+            })
+            .catch(err => {
+                console.error('Failed to update lights:', err);
+            });
         });
     });
 });
    
-fetch('duurzaamhuisposttest/jsonInput.json')
+fetch('https://39702.hosts2.ma-cloud.nl/duurzaamhuis/post.php', {
+    method: 'POST'
+  })
   .then(res => res.json())
   .then(data => {
-    // Assume lights[0] = Kamer1, lights[1] = Kamer2, etc.
+    //console.log('Fetched JSON:', data);
+    temperatuurVeranderd(data.Temperature, false);
     data.lights.forEach((state, index) => {
-        const toggleId = `toggleButton${index + 1}`;
-        const isOn = state === 'HIGH';
-        updateLightState(toggleId, isOn);
+      const toggleId = `toggleButton${index + 1}`;
+      const isOn = state === 'HIGH';
+      updateLightState(toggleId, isOn);
     });
-  });
+  })
+  .catch(err => console.error('Error fetching data:', err));  

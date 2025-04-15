@@ -13,7 +13,7 @@ if (empty($json)) {
 
     $data = json_decode($json);
 
-    $fileContents = file_get_contents("jsonInput.txt");
+    $fileContents = file_get_contents("jsonInput.json");
     $fileData = json_decode($fileContents);
 
     if (!$fileData) {
@@ -25,12 +25,8 @@ if (empty($json)) {
     $fileData->Humidity = $data->Humidity ?? null;
     $fileData->HeatIndex = $data->HeatIndex ?? null;
 
-    if (!isset($fileData->lights) || !is_array($fileData->lights)) {
-        $fileData->lights = ["LOW", "LOW", "LOW"]; // default 3 lights off
-    }
-
-    for ($i = 0; $i < count($fileData->lights); $i++) {
-        //
+    if (isset($data->lights) && is_array($data->lights)) {
+        $fileData->lights = $data->lights;
     }
 
     $finalJson = json_encode($fileData, JSON_PRETTY_PRINT);
